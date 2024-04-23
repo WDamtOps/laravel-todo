@@ -1,4 +1,4 @@
-name: Deploy larabel
+name: Deploy laravel
 on:
   push:
     branches:
@@ -7,12 +7,12 @@ jobs:
   deplpy-app:
     runs-on: ubuntu-latest
     steps:
-    -  name: Checkout
-       uses: actions/checkout@v4.1.1
-    -  name: SSH Remote Commands
-       uses: appleboy/ssh-action@v1.0.3
-       with:
-         host: ${{ secrets.HOST }}
-         username: ${{ secrets.USERNAME }}
-         key: ${{ secrets.KEY }}
-         script: "cd home/ubuntu/devops && ./deploy.sh"   
+      -  name: Checkout
+         uses: actions/checkout@v4.1.1
+      -  name: SSH Remote Commands
+         uses: appleboy/ssh-action@v1.0.3
+         with:
+           host: ${{ secrets.HOST }}
+           username: ${{ secrets.USERNAME }}
+           key: ${{ secrets.KEY }}
+           script: "cd /home/ubuntu/devops && ./deploy.sh"   
